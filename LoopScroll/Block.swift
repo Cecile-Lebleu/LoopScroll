@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct Block: View {
-	@State private var active = false
+	@Binding var item: Item
 	
 	var body: some View {
 		RoundedRectangle(cornerRadius: 15)
-			.fill(active ? Color.yellow.gradient : Color.blue.gradient)
+			.fill(item.active ? Color.yellow.gradient : Color.blue.gradient)
 			.frame(width: 400, height: 150)
 			.onTapGesture {
-				active.toggle()
+				item.active.toggle()
 			}
 	}
 }
 
 #Preview {
-	Block()
+	Block(item: .constant(Item()))
 }

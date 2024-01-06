@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct Item: Identifiable {
-	var id: UUID = .init()
+	var id: UUID
+	var active: Bool
+	
+	init() {
+		self.id = UUID()
+		self.active = false
+	}
 }
 
 struct InfiniteHorizontalScrollView2<Content: View, Item: RandomAccessCollection>: View where Item.Element: Identifiable {
